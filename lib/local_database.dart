@@ -11,7 +11,7 @@ class Localdatabase {
       join(await getDatabasesPath(), _userDb),
       version: 1,
       onCreate: (db, version) => db.execute(
-          'CREATE TABLE $_userMst (id INTEGER PRIMARY KEY, fName TEXT NOT NULL,mName TEXT NOT NULL,lName TEXT NOT NULL)'),
+          'CREATE TABLE $_userMst (id INTEGER PRIMARY KEY,fName TEXT NOT NULL,mName TEXT NOT NULL,lName TEXT NOT NULL)'),
     );
   }
 
