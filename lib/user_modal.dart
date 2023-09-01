@@ -19,8 +19,8 @@ class UserDetailModel {
       data['id'] = id;
     }
     data['fName'] = fName;
-    data['fName'] = fName;
-    data['fName'] = fName;
+    data['mName'] = mName;
+    data['lName'] = lName;
     return data;
   }
 }

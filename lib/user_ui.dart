@@ -16,27 +16,29 @@ class _HomeScreenSqfliteDemoState extends State<HomeScreenSqfliteDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          TextField(
-            controller: fNameController,
-          ),
-          TextField(
-            controller: mNameController,
-          ),
-          TextField(
-            controller: lNameController,
-          ),
-          MaterialButton(
-            onPressed: () async {
-              await Localdatabase.insertdata(UserDetailModel(
-                  fName: fNameController.text,
-                  mName: mNameController.text,
-                  lName: lNameController.text));
-            },
-            child: const Text('submmit'),
-          )
-        ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            TextField(
+              controller: fNameController,
+            ),
+            TextField(
+              controller: mNameController,
+            ),
+            TextField(
+              controller: lNameController,
+            ),
+            MaterialButton(
+              onPressed: () async {
+                await Localdatabase.insertdata(UserDetailModel(
+                    fName: fNameController.text,
+                    mName: mNameController.text,
+                    lName: lNameController.text));
+              },
+              child: const Text('submit'),
+            )
+          ],
+        ),
       ),
     );
   }
