@@ -14,10 +14,8 @@ class _HomeScreenSqfliteDemoState extends State<HomeScreenSqfliteDemo> {
   TextEditingController mNameController = TextEditingController();
   TextEditingController lNameController = TextEditingController();
   String gender = 'gender', male = 'male', feMale = 'feMale';
-  bool isCricket = false, isFootball = false;
   double selectedage = 0;
   bool isUpdate = false;
-  List selectHobby = [];
   int selectId = 0;
   late Future<List<UserDetailModel>> futureUserData;
   @override
