@@ -99,27 +99,6 @@ class _HomeScreenSqfliteDemoState extends State<HomeScreenSqfliteDemo> {
                 ),
               ],
             ),
-            // Row(
-            //   children: [
-            //     const Text('Hobby :  '),
-            //     const Text('Cricket: '),
-            //     Checkbox(
-            //       value: isCricket,
-            //       onChanged: (value) {
-            //         isCricket = value!;
-            //         setState(() {});
-            //       },
-            //     ),
-            //     const Text('Football: '),
-            //     Checkbox(
-            //       value: isFootball,
-            //       onChanged: (value) {
-            //         isFootball = value!;
-            //         setState(() {});
-            //       },
-            //     )
-            //   ],
-            // ),
             Slider(
               value: selectedage,
               onChanged: (value) {
@@ -134,19 +113,11 @@ class _HomeScreenSqfliteDemoState extends State<HomeScreenSqfliteDemo> {
             MaterialButton(
               onPressed: isUpdate
                   ? () async {
-                      // selectHobby.clear();
-                      if (isCricket == true) {
-                        selectHobby.add('cricket');
-                      }
-                      if (isFootball == true) {
-                        selectHobby.add('football');
-                      }
                       UserDetailModel obj = UserDetailModel(
                           fName: fNameController.text,
                           mName: mNameController.text,
                           lName: lNameController.text,
                           gender: gender,
-                          // hobby: List.from(selectHobby.map((e) => e)),
                           age: selectedage,
                           id: selectId);
                       Localdatabase.updateData(obj);
@@ -155,8 +126,6 @@ class _HomeScreenSqfliteDemoState extends State<HomeScreenSqfliteDemo> {
                       mNameController.clear();
                       lNameController.clear();
                       gender = 'gender';
-                      // isCricket = false;
-                      // isFootball = false;
                       selectedage = 0;
                       isUpdate = false;
                       setState(() {});
@@ -167,15 +136,12 @@ class _HomeScreenSqfliteDemoState extends State<HomeScreenSqfliteDemo> {
                           mName: mNameController.text,
                           lName: lNameController.text,
                           gender: gender,
-                          //hobby: List.from(selectHobby.map((e) => e)),
                           age: selectedage));
                       futureUserData = Localdatabase.selectData();
                       fNameController.clear();
                       mNameController.clear();
                       lNameController.clear();
                       gender = 'gender';
-                      // isCricket = false;
-                      // isFootball = false;
                       selectedage = 0;
                       setState(() {});
                     },
@@ -197,18 +163,6 @@ class _HomeScreenSqfliteDemoState extends State<HomeScreenSqfliteDemo> {
                             mNameController.text = snapshot.data![index].mName;
                             lNameController.text = snapshot.data![index].lName;
                             gender = snapshot.data![index].gender;
-                            // selectHobby = snapshot.data![index].hobby
-                            //     .map((e) => e)
-                            //     .toList();
-
-                            // if (snapshot.data![index].hobby
-                            //     .contains('cricket')) {
-                            //   isCricket = true;
-                            // }
-                            // if (snapshot.data![index].hobby
-                            //     .contains('football')) {
-                            //   isFootball = true;
-                            // }
                             selectedage = snapshot.data![index].age;
                             selectId = snapshot.data![index].id!;
                             setState(() {});
@@ -235,8 +189,6 @@ class _HomeScreenSqfliteDemoState extends State<HomeScreenSqfliteDemo> {
                                   Text('Last: ${snapshot.data![index].lName}'),
                                   Text(
                                       'Gender: ${snapshot.data![index].gender}'),
-                                  // Text(
-                                  //     'Hobby: ${snapshot.data![index].hobby.toString()}'),
                                   Text('Age: ${snapshot.data![index].age}'),
                                 ],
                               ),
