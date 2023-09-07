@@ -3,7 +3,6 @@ class UserDetailModel {
   String fName, mName, lName;
   String gender;
   double age;
-  //List hobby;
 
   UserDetailModel({
     this.id,
@@ -12,7 +11,6 @@ class UserDetailModel {
     required this.lName,
     required this.gender,
     required this.age,
-    //required this.hobby,
   });
 
   factory UserDetailModel.fromJson(Map<String, dynamic> json) =>
@@ -23,7 +21,6 @@ class UserDetailModel {
         lName: json['lName'],
         gender: json['gender'],
         age: json['age'],
-        // hobby: List.from(json['hobby'].map((e) => e)).toList(),
       );
   Map<String, dynamic> toJson() {
     Map<String, dynamic> data = {};
@@ -34,7 +31,6 @@ class UserDetailModel {
     data['mName'] = mName;
     data['lName'] = lName;
     data['gender'] = gender;
-    // data['hobby'] = List.from(hobby.map((e) => e)).toList();
     data['age'] = age;
     return data;
   }
